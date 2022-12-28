@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+
+
+
+@include mat.core();
+
+
+$project-theme-primary: (
+  50 : #e5e8ed,
+  100 : #bfc5d2,
+  200 : #959eb5,
+  300 : #6a7797,
+  400 : #4a5980,
+  500 : #2a3c6a,
+  600 : #253662,
+  700 : #1f2e57,
+  800 : #19274d,
+  900 : #0f1a3c,
+  A100 : #7794ff,
+  A200 : #446bff,
+  A400 : #1143ff,
+  A700 : #0034f6,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #ffffff,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+$project-theme-accent:(
+  50 : #f2e4e4,
+  100 : #dfbbbb,
+  200 : #ca8e8d,
+  300 : #b4605f,
+  400 : #a43e3d,
+  500 : #941c1b,
+  600 : #8c1918,
+  700 : #811414,
+  800 : #771110,
+  900 : #650908,
+  A100 : #ff9896,
+  A200 : #ff6663,
+  A400 : #ff3330,
+  A700 : #ff1a17,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$project-theme-light: (
+    50 : #fdfeff,
+    100 : #fafdfe,
+    200 : #f6fbfe,
+    300 : #f2f9fe,
+    400 : #f0f8fd,
+    500 : #edf7fd,
+    600 : #ebf6fd,
+    700 : #e8f5fc,
+    800 : #e5f3fc,
+    900 : #e0f1fc,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$primary: mat.define-palette($project-theme-primary,500);
+// $primary_light_header:mat.define-palette($project-theme-primary,200);
+$accent: mat.define-palette($project-theme-accent);
+$light: mat.define-palette($project-theme-light);
+// The warn palette is optional (defaults to red).
+$warn: mat.define-palette(mat.$red-palette);
+
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    light:$light
+  )
+));
+
+
+@include mat.all-component-themes($theme);
+
+*{
+    margin: 0;
+    padding: 0;
+}
